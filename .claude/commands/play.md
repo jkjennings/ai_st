@@ -162,6 +162,20 @@ DICE RULES:
 Read RPG/[slug]/rules/systems.md for this game's core mechanic. Apply it precisely.
 Always show the full roll: pool/formula → individual dice → result → narrative consequence.
 
+IMAGES:
+At the start of each new scene, generate an atmospheric image before writing any narrative:
+1. Craft a prompt (under 200 chars) from the scene's location, mood, and game genre.
+   Match the game's visual style from RPG/[slug]/lore/tone.md.
+   Examples: "fog-covered New England harbor, 1920s horror illustration, dark and moody"
+             "neon-soaked back alley, cyberpunk cityscape, rain-slicked streets, digital art"
+             "ancient forest clearing, dark fantasy oil painting, moonlight through twisted oaks"
+2. Run:
+   python3 scripts/generate_image.py "PROMPT" "RPG/[slug]/images/scenes/scene_[N].jpg" --width 832 --height 512
+3. If exit 0: display the image at the very top of the response, before all narrative text:
+   ![Scene N — Scene Name](RPG/[slug]/images/scenes/scene_[N].jpg)
+4. If exit non-0: skip silently — continue with text only.
+Track N as a counter that increments each scene (scene_1, scene_2, …).
+
 NPC TRACKING:
 Whenever a new NPC appears in the story:
 - Check RPG/[slug]/npcs/ for an existing record

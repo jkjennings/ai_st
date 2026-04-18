@@ -243,6 +243,26 @@ Generate a complete profile:
 - **Items** — what they're carrying or have access to
 - **Relationship to PCs** — how they fit into the current story
 
+## Portrait Generation
+
+After writing the profile, generate a portrait image:
+
+1. Craft a prompt from the NPC's physical description + the game's visual style (from `RPG/SLUG/lore/tone.md`).
+   Format: `"[physical appearance], [era/style], character portrait, detailed"`
+   Keep it under 200 characters. Describe appearance only — no names.
+   Example: `"tall gaunt man, wire-rimmed spectacles, 1920s tweed jacket, anxious expression, sepia portrait, detailed"`
+
+2. Run:
+   ```
+   python3 scripts/generate_image.py "PROMPT" "RPG/SLUG/images/npcs/NAME_SLUG.jpg" --width 512 --height 512
+   ```
+
+3. If exit 0: display the image **above** the NPC profile:
+   `![NAME](RPG/SLUG/images/npcs/NAME_SLUG.jpg)`
+   Add `"image_path": "RPG/SLUG/images/npcs/NAME_SLUG.jpg"` to the saved JSON.
+
+4. If exit non-0: skip silently — continue without the image.
+
 Save to `RPG/SLUG/npcs/[name_slug].json`.
 
 Confirm: "✓ [Name] saved to RPG/SLUG/npcs/[name_slug].json"
