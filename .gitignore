@@ -1,0 +1,29 @@
+# ── Directory contents (keep dirs, ignore everything inside) ──
+books/**
+!books/.gitkeep
+
+data/**
+!data/.gitkeep
+
+scripts/**
+!scripts/.gitkeep
+
+RPG/**
+!RPG/.gitkeep
+
+# ── WoD source PDFs ──
+wod_20_books/
+
+# ── Claude internal project state (memory, plans, sessions) ──
+.claude/projects/
+.claude/plans/
+
+# ── Python cache ──
+__pycache__/
+*.pyc
+*.pyo
+
+# ── Backups / OS files ──
+*.bak
+.DS_Store
+Thumbs.db
