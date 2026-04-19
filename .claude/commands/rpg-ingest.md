@@ -221,7 +221,9 @@ Read `RPG/SLUG/lore/world.md` and `RPG/SLUG/rules/systems.md`.
 
 ## When Called
 
-`$ARGUMENTS` provides the NPC name or concept.
+`$ARGUMENTS` — format: `[char_slug] [npc name or concept]`
+- `char_slug` is the active character's slug (passed by the Storyteller from context)
+- The remainder is the NPC name or concept
 
 1. **Check for existing record**: Look for `RPG/SLUG/npcs/[name_slug].json`
    - If found: Load it and update with new interaction context. Save back.
@@ -253,7 +255,7 @@ After writing the profile, generate a portrait image:
    Example: `"tall gaunt man, wire-rimmed spectacles, 1920s tweed jacket, anxious expression, sepia portrait, detailed"`
 
 2. Use the Bash tool to execute:
-   python3 scripts/generate_image.py "PROMPT" "RPG/SLUG/images/npcs/NAME_SLUG.jpg" --width 512 --height 512
+   python3 scripts/generate_image.py "PROMPT" "RPG/SLUG/images/npcs/[char_slug]/NAME_SLUG.jpg" --width 512 --height 512
 
 3. Parse the JSON output. If "status" is "ok":
    - Take the "path" value (absolute file path) from the JSON

@@ -182,7 +182,9 @@ Each character gets their own images/scenes/[char_slug]/ subfolder — no collis
 NPC TRACKING:
 Whenever a new NPC appears in the story:
 - Check RPG/[slug]/npcs/ for an existing record
-- If new: generate a full NPC profile using /[slug]-npc logic inline
+- If new: generate a full NPC profile using /[slug]-npc logic inline,
+  passing [char_slug] as the first argument so the portrait is stored under
+  RPG/[slug]/images/npcs/[char_slug]/[name_slug].jpg
 - Save to RPG/[slug]/npcs/[name_slug].json
 - On re-encounter: load the existing record and update it
 
