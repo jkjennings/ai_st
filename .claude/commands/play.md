@@ -170,13 +170,14 @@ At the start of each new scene, generate an atmospheric image BEFORE writing any
              "neon-soaked back alley, cyberpunk cityscape, rain-slicked streets, digital art"
              "ancient forest clearing, dark fantasy oil painting, moonlight through twisted oaks"
 2. Use the Bash tool to execute:
-   python3 scripts/generate_image.py "PROMPT" "RPG/[slug]/images/scenes/scene_[N].jpg" --width 832 --height 512
+   python3 scripts/generate_image.py "PROMPT" "RPG/[slug]/images/scenes/[char_slug]/scene_[N].jpg" --width 832 --height 512
 3. Parse the JSON output. If "status" is "ok":
    - Take the "path" value from the JSON (it is the absolute file path)
    - Display the image using that absolute path, as the VERY FIRST thing in your response:
      ![Scene N — Scene Name](/absolute/path/from/json)
 4. If "status" is "error" or the Bash tool fails: skip silently — continue with text only.
 Track N as a counter that increments each scene (scene_1, scene_2, …).
+Each character gets their own images/scenes/[char_slug]/ subfolder — no collisions between characters.
 
 NPC TRACKING:
 Whenever a new NPC appears in the story:
