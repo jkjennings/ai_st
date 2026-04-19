@@ -252,16 +252,16 @@ After writing the profile, generate a portrait image:
    Keep it under 200 characters. Describe appearance only — no names.
    Example: `"tall gaunt man, wire-rimmed spectacles, 1920s tweed jacket, anxious expression, sepia portrait, detailed"`
 
-2. Run:
-   ```
+2. Use the Bash tool to execute:
    python3 scripts/generate_image.py "PROMPT" "RPG/SLUG/images/npcs/NAME_SLUG.jpg" --width 512 --height 512
-   ```
 
-3. If exit 0: display the image **above** the NPC profile:
-   `![NAME](RPG/SLUG/images/npcs/NAME_SLUG.jpg)`
-   Add `"image_path": "RPG/SLUG/images/npcs/NAME_SLUG.jpg"` to the saved JSON.
+3. Parse the JSON output. If "status" is "ok":
+   - Take the "path" value (absolute file path) from the JSON
+   - Display the image using that absolute path **above** the NPC profile:
+     ![NAME](/absolute/path/from/json)
+   - Add `"image_path": "/absolute/path/from/json"` to the saved JSON.
 
-4. If exit non-0: skip silently — continue without the image.
+4. If "status" is "error" or the Bash tool fails: skip silently — continue without the image.
 
 Save to `RPG/SLUG/npcs/[name_slug].json`.
 
