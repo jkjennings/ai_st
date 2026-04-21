@@ -26,6 +26,7 @@ wod_20_books/
 # ── Claude internal project state (memory, plans, sessions) ──
 .claude/projects/
 .claude/plans/
+.claude/settings.local.json
 
 # ── Python cache ──
 __pycache__/
