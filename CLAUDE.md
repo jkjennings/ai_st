@@ -48,45 +48,26 @@ RPG/
 
 scripts/
   extract_pdf_text.py         ← Generic PDF → page_NNNN.txt extractor
-  extract_wod_pdfs.py         ← WoD-specific extractor (detect_columns reused)
-  dice_roller.py              ← WoD dice roller (d10 pool, difficulty, botch)
-  build_wod_data.py           ← WoD data builder (V20/W20/M20/C20/WR20/DAV20)
-  advance_character.py        ← WoD character advancement validator
-
-data/                         ← Legacy WoD game data (V20, W20, M20, C20, WR20, DAV20)
-  common/                     ← Shared dice rules, health levels, setting primer
-  v20/                        ← Vampire: The Masquerade 20th — clans, disciplines, etc.
-  w20/                        ← Werewolf: The Apocalypse 20th
-  m20/                        ← Mage: The Ascension 20th
-  c20/                        ← Changeling: The Dreaming 20th
-  wr20/                       ← Wraith: The Oblivion 20th
-  dav20/                      ← Vampire: The Dark Ages 20th
-
-wod_20_books/                 ← WoD source PDFs
-  v20_books/
-  werewolf20_books/
-  mage20_books/
-  changeling20_books/
-  v20_dark_ages_books/
-  wraith20_books/
+  extract_wod_pdfs.py         ← Column-detection library used by extract_pdf_text.py
+  generate_image.py           ← Pollinations.ai image downloader
 ```
 
 ## Quickstart
 
 ### Play any game
 ```
-/play Call of Cthulhu
+/play <game name>
 ```
 - If the game isn't set up yet: scans `books/`, asks which PDFs to use, ingests them, generates skills
 - If the game is set up: shows character list and session history
 
 ### Add a new game from scratch
 1. Copy source PDFs to `books/`
-2. `/play My Game Name` — it will detect the game is unknown and guide you through ingest
+2. `/play <game name>` — it will detect the game is unknown and guide you through ingest
 
 ### Manually ingest books
 ```
-/rpg-ingest my_game "My Game Name"
+/rpg-ingest <slug> "<Game Name>"
 ```
 
 ## Player Controls During a Session
